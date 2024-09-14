@@ -49,6 +49,53 @@ app.get("/api/wx_openid", async (req, res) => {
   }
 });
 
+// 获取汇报组数据
+/**
+ * 入参示例:
+
+{
+    "tenantCode": "ngd",
+    "currentEmployee": "195573",
+    "businessModule": "meeting",
+    "businessMethod": "searchReportingTeam",
+    "businessLogicParameterMap": {}
+}
+
+响应示例：
+{
+    "code": "200",
+    "datas": {
+        "radiobox": [
+            {
+                "key": 35468,
+                "text": "机上勤务部办公室员工"
+            }
+        ],
+        "tips": "操作成功",
+        "tipsCode": 1000,
+        "verifyCode": 0
+    },
+    "message": "操作成功。"
+}
+ */
+qpp.post("/api/reportingTeam", async (req, res) => { 
+  res.send({
+    code: 0,
+    data: {
+      radiobox: [
+        {
+          key: 35468,
+          text: "机上勤务部办公室员工",
+        },
+      ],
+      tips: "操作成功",
+      tipsCode: 1000,
+      verifyCode: 0,
+    },
+  });
+});
+
+
 const port = process.env.PORT || 80;
 
 async function bootstrap() {

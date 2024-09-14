@@ -78,7 +78,7 @@ app.get("/api/wx_openid", async (req, res) => {
     "message": "操作成功。"
 }
  */
-qpp.post("/api/reportingTeam", async (req, res) => { 
+app.post("/api/reportingTeam", async (req, res) => { 
   res.send({
     code: 0,
     data: {
